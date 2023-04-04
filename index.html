@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="styles.css" />
+
+    <title>Frontend Mentor | Multi-step form</title>
+  </head>
+  <body class="bg-magnolia text-blue">
+    <main class="app-wrapper">
+      <!-- Sidebar start -->
+      <nav class="flex text-white sidebar">
+        <ul class="flex list-container">
+          <li class="list">
+            <p class="circled-number flex text-white" aria-selected="true">1</p>
+            <div class="sr-only">
+              <p class="fs-200 uppercase">Step 1</p>
+              <p class="text-white uppercase fw-700 letter-spacing-3 fs-200">
+                Your info
+              </p>
+            </div>
+          </li>
+          <li class="list">
+            <p class="circled-number flex text-white" aria-selected="false">
+              2
+            </p>
+            <div class="sr-only">
+              <p class="fs-200 uppercase">Step 2</p>
+              <p class="text-white uppercase fw-700 letter-spacing-3 fs-200">
+                Select plan
+              </p>
+            </div>
+          </li>
+          <li class="list">
+            <p class="circled-number flex text-white" aria-selected="false">
+              3
+            </p>
+            <div class="sr-only">
+              <p class="fs-200 uppercase">Step 3</p>
+              <p class="text-white uppercase fw-700 letter-spacing-3 fs-200">
+                Add-ons
+              </p>
+            </div>
+          </li>
+          <li class="list">
+            <p class="circled-number flex text-white" aria-selected="false">
+              4
+            </p>
+            <div class="sr-only">
+              <p class="fs-200 uppercase">Step 4</p>
+              <p class="text-white uppercase fw-700 letter-spacing-3 fs-200">
+                Summary
+              </p>
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Sidebar end -->
+
+      <!-- Step 1 start -->
+
+      <form class="form-container bg-white">
+        <section class="hide step active" data-id="step_one">
+          <article>
+            <h1 class="personal-info fw-800 fs-700 ">Personal Info</h1>
+          <p class="info-text">
+            Please provide your name, email address and phone number.
+          </p>
+          </article>
+          <article>
+            <div>
+              <label for="name">Name</label>
+              <input type="text" name="name" placeholder="e.g. Stephen King"/>
+            </div>
+            <div>
+              <label for="email">Email Address</label>
+              <input type="email" name="email" placeholder="e.g. stephenking@lorem.com"/>
+            </div>
+            <div>
+              <label for="phone">Phone Number</label>
+              <input type="number" name="phone" placeholder="e.g. +1 234 567 890"/>
+            </div>
+          </article>
+        </section>
+        <!-- Step 1 end -->
+
+        <!-- Next Step -->
+
+        <!-- Step 2 start -->
+        <section class="hide step" data-id="step_two">
+          <article>
+            <h1 class="personal-info fw-800 fs-700">Select your plan</h1>
+            <p class="info-text">
+              You have the option of monthly or yearly billing.
+            </p>
+          </article>
+        <!-- monthly period container -->
+
+        <article class="month_container active">
+            <div data-price="9" class="pricing_option" aria-selected="true">
+              <img src="./assets/images/icon-arcade.svg" alt="arcade_image" />
+              <p class="grid">
+                <span class="fw-700 text-blue">Arcade</span>
+                <span>$9/mo</span>
+              </p>
+            </div>
+            <div data-price="12" class="pricing_option" aria-selected="false">
+              <img
+                src="./assets/images/icon-advanced.svg"
+                alt="advanced_image"
+              />
+              <p class="grid">
+                <span class="fw-700 text-blue">Advanced</span>
+                <span>$12/mo</span>
+              </p>
+            </div>
+            <div data-price="15" class="pricing_option" aria-selected="false">
+              <img src="./assets/images/icon-pro.svg" alt="pro_image" />
+              <p class="grid">
+                <span class="fw-700 text-blue">Pro</span>
+                <span>$15/mo</span>
+              </p>
+            </div>
+          </article>
+
+        <!-- yearly period container -->
+
+        <article class="year_container">
+            <div data-id="year" data-price="9" class="pricing_option">
+              <img src="./assets/images/icon-arcade.svg" alt="arcade_image" />
+              <p class="grid">
+                <span class="fw-700 text-blue">Arcade</span>
+                <span>$90/yr</span>
+                <span class="text-blue letter-spacing-0 fw-600 op-8 fs-200">2 months free</span>
+              </p>
+            </div>
+            <div data-id="year" data-price="12" class="pricing_option" >
+              <img src="./assets/images/icon-advanced.svg" alt="advanced_image" />
+              <p class="grid">
+                <span class="fw-700 text-blue">Advanced</span>
+                <span>$120/yr</span>
+                <span class="text-blue letter-spacing-0 fw-600 op-8 fs-200">2 months free</span>
+              </p>
+            </div>
+            <div data-id="year" data-price="15" class="pricing_option" >
+              <img src="./assets/images/icon-pro.svg" alt="pro_image" />
+              <p class="grid">
+                <span class="fw-700 text-blue">Pro</span>
+                <span>$150/yr</span>
+                <span class="text-blue letter-spacing-0 fw-600 op-8 fs-200">2 months free</span>
+              </p>
+            </div>
+          </article>
+          <div class="toggle_container">
+            <p class="period active_period">Monthly</p>
+            <label for="switch_period" class="toggle">
+              <input type="checkbox" class="switch_period" id="switch_period" />
+            </label>
+            <p class="period">Yearly</p>
+          </div>
+        </section>
+
+        <!-- Step 2 end -->
+
+        <!-- Step 3 start -->
+
+        <!-- <section class="hide step" data-id="step_three">
+          <article>
+            <h1 class="personal-info fw-800 fs-700">Pick add-ons</h1>
+            <p class="info-text">
+              Add-ons help enhance your gaming experience.
+            </p>
+          </article> -->
+
+        <!-- monthly period container -->
+
+        <!-- <article class="month_container active" data-step="3">
+            <div>
+              <label for="online_service" class="add_ons">
+                <input
+                  type="checkbox"
+                  name="online_service"
+                  id="online_service"
+                  class='checkbox'
+                />
+                <div class="grid">
+                  <span class="fw-700 fs-400 text-blue">Online service</span>
+                  <span class="fs-200 text-gray"
+                    >Access to multiplayer games</span
+                  >
+                </div>
+                <span class="text-purple">+$1/mo</span>
+              </label>
+            </div>
+            <div>
+              <label for="larger_storage" class="add_ons">
+                <input
+                  type="checkbox"
+                  name="larger_storage"
+                  id="larger_storage"
+                  class='checkbox'
+                />
+                <div class="grid">
+                  <span class="fw-700 fs-400 text-blue">Larger Storage</span>
+                  <span class="fs-200 text-gray"
+                    >Extra 1TB of cloud save</span
+                  >
+                </div>
+                <span class="text-purple">+$2/mo</span>
+              </label>
+            </div>
+            <div>
+              <label for="custom_profile" class="add_ons">
+                <input
+                  type="checkbox"
+                  name="custom_profile"
+                  id="custom_profile"
+                  class='checkbox'
+                />
+                <div class="grid">
+                  <span class="fw-700 fs-400 text-blue">Customizable Profile</span>
+                  <span class="fs-200 text-gray"
+                    >Custom theme on your profile</span
+                  >
+                </div>
+                <span class="text-purple">+$2/mo</span>
+              </label>
+            </div>
+          </article> -->
+
+        <!-- yearly period container -->
+
+        <!-- <article class="year_container" data-step="3">
+            <div>
+              <label for="online_service" class="add_ons">
+                <input
+                  type="checkbox"
+                  name="online_service"
+                  id="online_service"
+                  class='checkbox'
+                />
+                <div class="grid">
+                  <span class="fw-700 fs-400 text-blue">Online service</span>
+                  <span class="fs-200 text-gray"
+                    >Access to multiplayer games</span
+                  >
+                </div>
+                <span class="text-purple">+$10/yr</span>
+              </label>
+            </div>
+            <div>
+              <label for="larger_storage" class="add_ons">
+                <input
+                  type="checkbox"
+                  name="larger_storage"
+                  id="larger_storage"
+                  class='checkbox'
+                />
+                <div class="grid">
+                  <span class="fw-700 fs-400 text-blue">Larger Storage</span>
+                  <span class="fs-200 text-gray"
+                    >Extra 1TB of cloud save</span
+                  >
+                </div>
+                <span class="text-purple">+$20/yr</span>
+              </label>
+            </div>
+            <div>
+              <label for="custom_profile" class="add_ons">
+                <input
+                  type="checkbox"
+                  name="custom_profile"
+                  id="custom_profile"
+                  class='checkbox'
+                />
+                <div class="grid">
+                  <span class="fw-700 fs-400 text-blue">Customizable Profile</span>
+                  <span class="fs-200 text-gray"
+                    >Custom theme on your profile</span
+                  >
+                </div>
+                <span class="text-purple">+$20/yr</span>
+              </label>
+            </div>
+          </article>
+        </section> -->
+
+        <!-- Step 3 end -->
+
+        <!-- Step 4 start -->
+
+        <!-- <section class="active" data-id="step_one">
+          <article>
+            <h1 class="personal-info fw-800 fs-700">Finishing up</h1>
+            <p class="info-text">
+              Double-check everything looks OK before confirming.
+            </p>
+          </article>
+
+          <section class="summation">
+            <div>
+              <p class="plan_type text-blue fw-600">
+                Arcade (Monthly)
+                <a href="#" class="fw-400">Change</a>
+              </p>
+              <span class="text-blue fw-600">$9/mo</span>
+            </div>
+            <div class="underline"></div>
+            <div>
+              <p>Online Service</p>
+              <span class="text-blue fw-500">$2/mo</span>
+            </div>
+            <div>
+              <p>Larger Storage</p>
+              <span class="text-blue fw-500">$2/mo</span>
+            </div>
+          </section>
+
+          <article class="total">
+            <p>Total (per Month)</p>
+            <span class="text-purple fs-500 fw-700">+$12/mo</span>
+          </article>
+        </section> -->
+
+        <!-- Step 4 end -->
+
+        <!-- Step 5 start -->
+
+        <!-- <section class="active thanks" data-id="step_one">
+          <img src="/assets/images/icon-thank-you.svg" alt="thank you" />
+          <h1>Thank you!</h1>
+          <p>Thanks for confirming your subscription! We hope you have fun 
+            using our platform. If you ever need support, please feel free 
+            to email us at support@loremgaming.com.</p>
+        </section> -->
+
+
+        <!-- Step 5 end -->
+
+        <article data-step="2" class="btn-container bg-white">
+          <p class="back text-gray hide">Go Back</p>
+          <button class="btn next bg-blue text-white">Next Step</button>
+        </article>
+      </form>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
