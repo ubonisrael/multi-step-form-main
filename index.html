@@ -21,7 +21,7 @@
       <nav class="flex text-white sidebar">
         <ul class="flex list-container">
           <li class="list">
-            <p class="circled-number flex text-white" aria-selected="true">1</p>
+            <p class="circled-number flex text-white" data-selected="true">1</p>
             <div class="sr-only">
               <p class="fs-200 uppercase">Step 1</p>
               <p class="text-white uppercase fw-700 letter-spacing-3 fs-200">
@@ -30,7 +30,7 @@
             </div>
           </li>
           <li class="list">
-            <p class="circled-number flex text-white" aria-selected="false">
+            <p class="circled-number flex text-white" data-selected="false">
               2
             </p>
             <div class="sr-only">
@@ -41,7 +41,7 @@
             </div>
           </li>
           <li class="list">
-            <p class="circled-number flex text-white" aria-selected="false">
+            <p class="circled-number flex text-white" data-selected="false">
               3
             </p>
             <div class="sr-only">
@@ -72,23 +72,23 @@
       <form class="form-container bg-white">
         <section class="hide step active" data-id="step_one">
           <article>
-            <h1 class="personal-info fw-800 fs-700 ">Personal Info</h1>
+            <h1 class="personal-info fw-800 fs-700 ">Personal info</h1>
           <p class="info-text">
             Please provide your name, email address and phone number.
           </p>
           </article>
           <article>
             <div>
-              <label for="name">Name</label>
-              <input type="text" name="name" placeholder="e.g. Stephen King"/>
+              <label for="name" class="user_details">Name <span id="name_err" class="error_msg">This field is required</span></label>
+              <input type="text"  class="user_details-input text-blue" name="name"  id="name" placeholder="e.g. Stephen King"/>
             </div>
             <div>
-              <label for="email">Email Address</label>
-              <input type="email" name="email" placeholder="e.g. stephenking@lorem.com"/>
+              <label for="email" class="user_details">Email Address <span id="email_err" class="error_msg">A valid email is required</span></label>
+              <input type="email"  class="user_details-input text-blue" name="email"  id="email" placeholder="e.g. stephenking@lorem.com"/>
             </div>
             <div>
-              <label for="phone">Phone Number</label>
-              <input type="number" name="phone" placeholder="e.g. +1 234 567 890"/>
+              <label for="phone" class="user_details">Phone Number <span id="phone_err" class="error_msg">This field is required</span></label>
+              <input type="number" class="user_details-input text-blue"  name="phone " id="phone" placeholder="e.g. +1 234 567 890"/>
             </div>
           </article>
         </section>
@@ -107,14 +107,17 @@
         <!-- monthly period container -->
 
         <article class="month_container active">
-            <div data-price="9" class="pricing_option" aria-selected="true">
+            
+            <div class="pricing_option" >
+              <div data-price=9 class="option_click" id="Arcade (Monthly)"></div>
               <img src="./assets/images/icon-arcade.svg" alt="arcade_image" />
               <p class="grid">
                 <span class="fw-700 text-blue">Arcade</span>
                 <span>$9/mo</span>
               </p>
             </div>
-            <div data-price="12" class="pricing_option" aria-selected="false">
+            <div class="pricing_option">
+              <div data-price=12 class="option_click" id="Advanced (Monthly)"></div>
               <img
                 src="./assets/images/icon-advanced.svg"
                 alt="advanced_image"
@@ -124,19 +127,22 @@
                 <span>$12/mo</span>
               </p>
             </div>
-            <div data-price="15" class="pricing_option" aria-selected="false">
+            <div class="pricing_option">
+              <div data-price=15 class="option_click" id="Pro (Monthly)"></div>
               <img src="./assets/images/icon-pro.svg" alt="pro_image" />
               <p class="grid">
                 <span class="fw-700 text-blue">Pro</span>
                 <span>$15/mo</span>
               </p>
             </div>
+            <p class="plan_error error_msg">Please select a plan</p>
           </article>
 
         <!-- yearly period container -->
 
         <article class="year_container">
-            <div data-id="year" data-price="9" class="pricing_option">
+            <div data-id="year" class="pricing_option">
+              <div data-price=90 class="option_click" id="Arcade (Yearly)"></div>
               <img src="./assets/images/icon-arcade.svg" alt="arcade_image" />
               <p class="grid">
                 <span class="fw-700 text-blue">Arcade</span>
@@ -144,7 +150,8 @@
                 <span class="text-blue letter-spacing-0 fw-600 op-8 fs-200">2 months free</span>
               </p>
             </div>
-            <div data-id="year" data-price="12" class="pricing_option" >
+            <div data-id="year" class="pricing_option">
+              <div data-price=120 class="option_click" id="Advanced (Yearly)"></div>
               <img src="./assets/images/icon-advanced.svg" alt="advanced_image" />
               <p class="grid">
                 <span class="fw-700 text-blue">Advanced</span>
@@ -152,7 +159,8 @@
                 <span class="text-blue letter-spacing-0 fw-600 op-8 fs-200">2 months free</span>
               </p>
             </div>
-            <div data-id="year" data-price="15" class="pricing_option" >
+            <div data-id="year" class="pricing_option">
+              <div data-price=150 class="option_click" id="Pro (Yearly)"></div>
               <img src="./assets/images/icon-pro.svg" alt="pro_image" />
               <p class="grid">
                 <span class="fw-700 text-blue">Pro</span>
@@ -160,6 +168,7 @@
                 <span class="text-blue letter-spacing-0 fw-600 op-8 fs-200">2 months free</span>
               </p>
             </div>
+            <p class="plan_error error_msg">Please select a plan</p>
           </article>
           <div class="toggle_container">
             <p class="period active_period">Monthly</p>
@@ -174,17 +183,17 @@
 
         <!-- Step 3 start -->
 
-        <!-- <section class="hide step" data-id="step_three">
+        <section class="hide step" data-id="step_three">
           <article>
             <h1 class="personal-info fw-800 fs-700">Pick add-ons</h1>
             <p class="info-text">
               Add-ons help enhance your gaming experience.
             </p>
-          </article> -->
+          </article>
 
         <!-- monthly period container -->
 
-        <!-- <article class="month_container active" data-step="3">
+        <article class="month_container active" data-step="3">
             <div>
               <label for="online_service" class="add_ons">
                 <input
@@ -192,6 +201,7 @@
                   name="online_service"
                   id="online_service"
                   class='checkbox'
+                  value=1
                 />
                 <div class="grid">
                   <span class="fw-700 fs-400 text-blue">Online service</span>
@@ -209,6 +219,7 @@
                   name="larger_storage"
                   id="larger_storage"
                   class='checkbox'
+                  value=2
                 />
                 <div class="grid">
                   <span class="fw-700 fs-400 text-blue">Larger Storage</span>
@@ -226,6 +237,7 @@
                   name="custom_profile"
                   id="custom_profile"
                   class='checkbox'
+                  value=2
                 />
                 <div class="grid">
                   <span class="fw-700 fs-400 text-blue">Customizable Profile</span>
@@ -236,18 +248,19 @@
                 <span class="text-purple">+$2/mo</span>
               </label>
             </div>
-          </article> -->
+          </article>
 
         <!-- yearly period container -->
 
-        <!-- <article class="year_container" data-step="3">
+        <article class="year_container" data-step="3">
             <div>
-              <label for="online_service" class="add_ons">
+              <label for="online_service_yr" class="add_ons">
                 <input
                   type="checkbox"
-                  name="online_service"
-                  id="online_service"
+                  name="online_service_yr"
+                  id="online_service_yr"
                   class='checkbox'
+                  value=10
                 />
                 <div class="grid">
                   <span class="fw-700 fs-400 text-blue">Online service</span>
@@ -259,12 +272,13 @@
               </label>
             </div>
             <div>
-              <label for="larger_storage" class="add_ons">
+              <label for="larger_storage_yr" class="add_ons">
                 <input
                   type="checkbox"
-                  name="larger_storage"
-                  id="larger_storage"
+                  name="larger_storage_yr"
+                  id="larger_storage_yr"
                   class='checkbox'
+                  value=20
                 />
                 <div class="grid">
                   <span class="fw-700 fs-400 text-blue">Larger Storage</span>
@@ -276,12 +290,13 @@
               </label>
             </div>
             <div>
-              <label for="custom_profile" class="add_ons">
+              <label for="custom_profile_yr" class="add_ons">
                 <input
                   type="checkbox"
-                  name="custom_profile"
-                  id="custom_profile"
+                  name="custom_profile_yr"
+                  id="custom_profile_yr"
                   class='checkbox'
+                  value=20
                 />
                 <div class="grid">
                   <span class="fw-700 fs-400 text-blue">Customizable Profile</span>
@@ -293,14 +308,14 @@
               </label>
             </div>
           </article>
-        </section> -->
+        </section>
 
         <!-- Step 3 end -->
 
         <!-- Step 4 start -->
 
-        <!-- <section class="active" data-id="step_one">
-          <article>
+        <section class="hide step confirmation" data-id="step_four">
+          <!-- <article>
             <h1 class="personal-info fw-800 fs-700">Finishing up</h1>
             <p class="info-text">
               Double-check everything looks OK before confirming.
@@ -329,14 +344,15 @@
           <article class="total">
             <p>Total (per Month)</p>
             <span class="text-purple fs-500 fw-700">+$12/mo</span>
-          </article>
-        </section> -->
+          </article> -->
+        </section>
 
         <!-- Step 4 end -->
 
         <!-- Step 5 start -->
 
-        <!-- <section class="active thanks" data-id="step_one">
+        <!-- <section class="step thanks" data-id="step_five">
+          
           <img src="/assets/images/icon-thank-you.svg" alt="thank you" />
           <h1>Thank you!</h1>
           <p>Thanks for confirming your subscription! We hope you have fun 
@@ -348,7 +364,7 @@
         <!-- Step 5 end -->
 
         <article data-step="2" class="btn-container bg-white">
-          <p class="back text-gray hide">Go Back</p>
+          <p class="back text-gray">Go Back</p>
           <button class="btn next bg-blue text-white">Next Step</button>
         </article>
       </form>
