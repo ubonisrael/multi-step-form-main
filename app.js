@@ -31,7 +31,7 @@ const periods = document.querySelectorAll(".period");
 
 //get error messages
 const errorElem = document.querySelectorAll(".error_msg");
-const planErr = document.querySelector('.plan_error')
+const planErr = document.querySelectorAll('.plan_error')
 
 //get all input element  ===> user details (step one)
 const userDetails = document.querySelectorAll(".user_details-input");
@@ -90,7 +90,8 @@ function alertError(val, input) {
     errorElem[2].classList.add("active");
   }
   if (val === "plan") {
-    input.classList.add("active");
+    input[0].classList.add("active");
+    input[1].classList.add("active");
   }
 }
 
@@ -123,7 +124,8 @@ nextBtn.addEventListener("click", (e) => {
     alertError('plan', planErr)
     return;
   } else {
-    planErr.classList.remove("active");
+    planErr[0].classList.remove("active");
+    planErr[1].classList.remove("active");
   }
 
   if (step < 4) {
